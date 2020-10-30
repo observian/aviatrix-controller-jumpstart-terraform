@@ -21,6 +21,9 @@ ssh-keygen -f aviatrix
 ```
 Open the resulting aviatrix.pub and copy the contents to the variable in tf cloud named public_key.  
 
+An alternative to providing the key this way is to manually go into the aws console and create a keypair in ec2.  
+Then all that is needed is to update this terraform by deleting the aws_key_pair resource and changing where it is referenced in the Aviatrix terraform module to be instead the var.keypair_name.  
+
 
 # Things to keep in mind:
 When destroying this stack, the controller has termination protection.  
